@@ -40,4 +40,10 @@ class Event
       output[item[0]] = { quantity: item[1], food_trucks: food_trucks_that_sell(item[0]) }
     end
   end
+
+  def overstocked_items
+    total_inventory.each_with_object([]) do |item, output|
+      output << item[0] if item[1][:quantity] > 50 && item[1][:food_trucks].length > 1
+    end
+  end
 end
