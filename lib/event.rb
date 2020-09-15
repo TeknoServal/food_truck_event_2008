@@ -49,4 +49,8 @@ class Event
       output << item[0] if item[1][:quantity] > 50 && item[1][:food_trucks].length > 1
     end
   end
+
+  def sorted_item_list
+    total_inventory.keys.map(&:name).sort
+  end
 end
