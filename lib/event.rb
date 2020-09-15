@@ -37,7 +37,10 @@ class Event
 
   def total_inventory
     items.each_with_object({}) do |item, output|
-      output[item[0]] = { quantity: item[1], food_trucks: food_trucks_that_sell(item[0]) }
+      output[item[0]] = {
+        quantity: item[1],
+        food_trucks: food_trucks_that_sell(item[0])
+      }
     end
   end
 
