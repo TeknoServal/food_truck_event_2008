@@ -8,4 +8,16 @@ class FoodTruck
     @name = name
     @inventory = {}
   end
+
+  def check_stock(item)
+    @inventory[item] || 0
+  end
+
+  def stock(item, amount)
+    if @inventory[item]
+      @inventory[item] += amount
+    else
+      @inventory[item] = amount
+    end
+  end
 end
