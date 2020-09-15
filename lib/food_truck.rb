@@ -20,4 +20,10 @@ class FoodTruck
       @inventory[item] = amount
     end
   end
+
+  def potential_revenue
+    @inventory.sum do |item, amount|
+      (item.price.tr('^0-9, .', '').to_f * amount).round(2)
+    end
+  end
 end
